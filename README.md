@@ -73,3 +73,13 @@ p6/p7学习标准
  - 反向代理 ， 服务器和代理服务器在同一个网段，代理服务器代理的是服务端，可以配置多个服务器提供服务，是多对多关系。
    实现负载均衡的目的，后台有多个服务器在工作，但对外暴露的只是代理服务器的地址。
 
+```flow
+st=>start: Start
+e=>end
+op=>operation: My Operation
+cond=>condition: Yes or No?
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```

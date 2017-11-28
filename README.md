@@ -4,6 +4,47 @@ p6/p7学习标准
 ## 关于Http算法深入和浏览器工作原理
 
 ### 1. URI URL 语法和编码
+- URI：统一资源 包含有：URL、URN
+**URL是URI的特例。**
+
+文本字符串的一种标准，URI表示的是句法结构，用于指定表示web资源的字符串的各个部分。
+其他的URI，例如：mailto:cay@hostname.com，这个不是URL，因为它没有定位到具体的资源。
+因为URI还包括一个子类：统一资源名称(URN)，它可以命名资源但不指定如何定位资源，可以找到资源，但是不包含资源的位置信息，例如：mailto，news等都是URI的URN示例。
+URI和URL概念上的不同反应在此类和URL类的不同。
+URI 可以是相对的，也可以是绝对的。
+对URI字符串按照一般语法进行解析
+不考虑它所指定的方案，
+不对主机执行查找，
+不构造对应方案的处理程序，
+相等性，哈希计算都比较严格的根据实例的字符内容进行定义，
+
+一个URI实例类似于一个支持语法意义、依赖于方案的比较、规范化、解析、相对化计算的结构化字符串。
+
+URL的语法组成代表了它描述的资源所需的信息。URL是绝对的，必须始终指定一个具体的方案。
+事实上URL的处理需要一个流程序，无法对没有提供处理程序的方案创建URL。
+作为结构化的字符串，URL支持查找主机和打开相应网络资源的网络IO操作。
+
+- 在Java中
+
+URI类不包含任何访问资源的方法，不能访问，只能解析，唯一的作用是解析资源。
+URL类可以打开一个到达资源的流。因此URL类只能作用于那些Java类知道如何处理的模式。
+URL类还有两耳重要的方法：
+openStream() 打开到此URL的链接并返回一个用于从该链接读入的InputStream
+openConnection() 返回一个URLConnection对象，它表示到URL所引用的远程对象。
+```
+URL url = new URL("http://www.baidu.com");
+ InputStream in = url.openStream();
+ ByteArrayOutputStream output = new ByteArrayOutputStream();
+ byte[] buffer = new byte[1024];
+ int len = -1;
+ while ((len = in.read(buffer)) != -1)
+ {
+    output.write(buffer, 0, len);
+ }
+ System.err.println(new String(output.toByteArray()));
+```
+- 
+
 ### 2. DNS
 ### 3. Http报文头，实体，方法
 ### 4. TCP链接和Nagle算法

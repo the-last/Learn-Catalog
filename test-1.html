@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #89ffaa;
+            border: 1px solid #aaaaff;
+            margin-top: 50px;
+            /* margin不在锚点的位置计算范围内 */
+            padding-top: 50px;
+            /* padding可以调节content位置 */
+            outline: #00ff00 solid 50px;
+            /* outline不在位置计算范围内 */
+            border-top-width: 0px;
+            /* border可以调节计算位置 */
+            border-top-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <a href="#div1" target="_blank">div1</a>
+    <a href="#div2" target="_parent">div2</a>
+    <iframe frameborder="0" style="width: 200px;height: 200px;">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Document</title>
+        </head>
+        <body>
+            <a href="#div1" target="_blank">_blank</a>
+            <a href="#div2" target="_parent">_parent</a>
+        </body>
+        </html>
+    </iframe>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+    <div id='div1'>
+        这是一个div是什么鬼呀，div1
+    </div>
+    <div id='div2'>
+        这是一个div是什么鬼呀，div2
+    </div>
+    <a href="#">置顶</a>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+    <div>
+        填充
+    </div>
+</body>
+</html>

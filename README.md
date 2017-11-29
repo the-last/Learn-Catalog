@@ -45,20 +45,22 @@ URL url = new URL("http://www.baidu.com");
 ```
 
 #### 1.3 web URL地址
+
+schemas://www.baidu.com/img/?query=123#abc
 组成部分<br>
-schemas: 标识使用的传输协议类型。<br>
+schemas: 协议部分 标识使用的传输协议类型。<br>
 //: 分隔符。<br>
-身份认证: Login@password。<br>
-Address: 服务器地址。<br>
+domainName: 域名部分 www.baidu.com<br>
 port: 服务器端口号。<br>
-/path/to/resource: 文件路径。<br>
-?query_string: 查询条件。 // ?query=123 location.search<br>
-\# frag anchor: 分割点或锚点。<br>
+/path/to/resource 虚拟目录 <br>
+index.html 文件名部分 <br>
+/# frag anchor: 锚点部分。<br>
+?query_string: 参数部分。 // ?query=123 location.search<br>
 
 
 ### 2. DNS
 #### 2.1 DNS作用
-将域名解析成对应的IP地址<br>
+将域名解析成对应的IP地址， 方便访问服务器<br>
 #### 2.2 DNS原理
 DNS由解析器和域名服务器组成<br>
 域名服务器有一张表，保存该网络中所有域名和IP地址的映射关系，并可以将域名转为IP地址<br>
@@ -137,3 +139,41 @@ DNS采用类似目录树的等级结构。<br>
  - 正向代理 ， 客户端和代理服务器在同一个网段，代理服务器代理的是客户端，代理只能去访问这个服务器，多对一的关系。
  - 反向代理 ， 服务器和代理服务器在同一个网段，代理服务器代理的是服务端，可以配置多个服务器提供服务，是多对多关系。
    实现负载均衡的目的，后台有多个服务器在工作，但对外暴露的只是代理服务器的地址。
+
+
+### 3. Nginx
+- 目前比较流行的反向代理服务器。
+
+## SEO
+(search engine optimization)
+### 1. SEO概念
+
+
+### 2. vue seo
+
+#### 2.1 ssr server side renderer
+nuxt.js 
+
+#### 2.2 什么是服务端渲染？
+Vue.js 是客户端应用的框架。可以在浏览器中输出vue组件，然后生成dom，操作dom..或者，在服务端将一个组件渲染成html字符串，然后发送到浏览器，最后将静态标记‘混合’为客户端完全交互的应用。<br>
+服务端渲染的vue应用和客户端一样是，被认为同构或通用。
+#### 2.2 为什么使用服务端渲染？
+为了更好的SEO，可以让搜索引擎抓取到完整的网站页面 。<br>
+
+更好的内容到达时间，特别是在网络不好，或者设备缓慢的情况。无需等待所有js的加载就能看到完整渲染的html页面。<br>
+可以有更好的用户体验，特别是对SEO要求高的网页。
+
+#### 2.3 使用SSR时需要权衡的地方
+- 开发条件的限制。 组件有自己的生命周期，在特定的生命周期内才会执行相应的js代码，一些外部扩展库可能需要特殊处理
+
+- 涉及构建设置和部署会有更多要求。需要node.js server 环境
+
+- 增加服务端负载。在node中渲染完整的应用，显然会更多的占用服务端CPU资源，<br>
+因此如果在高流量的环境下使用，请准备服务负载，并明智的采用缓存策略。
+
+- 在使用SSR之前，首先考虑是否真的有必要使用SSR。如果对time-to-content要求比较高，比较看重用户体验的时候可以使用SSR。
+#### 2.4 SSR和PreRendering的比较
+如果需要改善某个页面的SEO，可能需要<b>预渲染</b>。无需使用web服务器动态选择html<br>
+
+
+## 缓存策略

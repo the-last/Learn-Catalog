@@ -46,7 +46,8 @@ URL url = new URL("http://www.baidu.com");
 
 #### 1.3 web URL地址
 
-schemas://www.baidu.com/img/?query=123#abc
+http://www.baidu.com/img/?query=123#abc <br>
+
 组成部分<br>
 schemas: 协议部分 标识使用的传输协议类型。<br>
 //: 分隔符。<br>

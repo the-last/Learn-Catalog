@@ -182,36 +182,8 @@ location ~ .*\.(js|css)$ {
 - 目前比较流行的反向代理服务器。
 config http://www.jb51.net/article/31273.htm
 
-## 4 SEO
-(search engine optimization)
-### 4.1 SEO概念
+## 4 node.js
 
+## 5 webpack 自定义loader
 
-### 4.2 vue seo
-
-#### 4.2.1 ssr server side renderer
-nuxt.js 
-
-#### 4.2.2 什么是服务端渲染？
-Vue.js 是客户端应用的框架。可以在浏览器中输出vue组件，然后生成dom，操作dom..或者，在服务端将一个组件渲染成html字符串，然后发送到浏览器，最后将静态标记‘混合’为客户端完全交互的应用。<br>
-服务端渲染的vue应用和客户端一样是，被认为同构或通用。
-#### 2.2 为什么使用服务端渲染？
-为了更好的SEO，可以让搜索引擎抓取到完整的网站页面 。<br>
-
-更好的内容到达时间，特别是在网络不好，或者设备缓慢的情况。无需等待所有js的加载就能看到完整渲染的html页面。<br>
-可以有更好的用户体验，特别是对SEO要求高的网页。
-
-#### 4.2.3 使用SSR时需要权衡的地方
-- 开发条件的限制。 组件有自己的生命周期，在特定的生命周期内才会执行相应的js代码，一些外部扩展库可能需要特殊处理
-
-- 涉及构建设置和部署会有更多要求。需要node.js server 环境
-
-- 增加服务端负载。在node中渲染完整的应用，显然会更多的占用服务端CPU资源，<br>
-因此如果在高流量的环境下使用，请准备服务负载，并明智的采用缓存策略。
-
-- 在使用SSR之前，首先考虑是否真的有必要使用SSR。如果对time-to-content要求比较高，比较看重用户体验的时候可以使用SSR。
-#### 4.2.4 SSR和PreRendering的比较
-如果需要改善某个页面的SEO，可能需要<b>预渲染</b>。无需使用web服务器动态选择html<br>
-在构建时简单生产针对特定路由的html文件，预渲染更简单。<br>
-在webpack上可以使用相应插件，更容易的实现pre-render。prerender-spa-plugin isjj installed by npm
 
